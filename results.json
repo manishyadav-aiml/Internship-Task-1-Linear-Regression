@@ -1,0 +1,131 @@
+{
+  "dataset": {
+    "rows": 20640,
+    "features": [
+      "MedInc",
+      "HouseAge",
+      "AveRooms",
+      "AveBedrms",
+      "Population",
+      "AveOccup",
+      "Latitude",
+      "Longitude"
+    ],
+    "target": "MedHouseVal",
+    "missing": 0,
+    "duplicates": 0,
+    "capped_pct": 4.8062015503875966,
+    "target_mean": 2.0685581690891475,
+    "target_median": 1.797,
+    "target_min": 0.14999,
+    "target_max": 5.00001
+  },
+  "eda": {
+    "top_corr": [
+      [
+        "MedInc",
+        0.6880752079585484
+      ],
+      [
+        "AveRooms",
+        0.15194828974145738
+      ],
+      [
+        "Latitude",
+        -0.14416027687465632
+      ],
+      [
+        "HouseAge",
+        0.10562341249321128
+      ],
+      [
+        "AveBedrms",
+        -0.046700512969486685
+      ],
+      [
+        "Longitude",
+        -0.04596661511798309
+      ],
+      [
+        "Population",
+        -0.02464967888889485
+      ],
+      [
+        "AveOccup",
+        -0.023737412956134355
+      ]
+    ],
+    "skewed": [
+      "MedInc",
+      "AveRooms",
+      "AveBedrms",
+      "Population",
+      "AveOccup"
+    ]
+  },
+  "split": {
+    "train": 16512,
+    "test": 4128,
+    "test_size": 0.2,
+    "random_state": 42
+  },
+  "baseline": {
+    "train": {
+      "mae": 0.5286283596581934,
+      "rmse": 0.7196757085831575,
+      "r2": 0.6125511913966952
+    },
+    "test": {
+      "mae": 0.5332001304956565,
+      "rmse": 0.7455813830127764,
+      "r2": 0.5757877060324508
+    },
+    "cv_r2_mean": 0.611456745810643,
+    "cv_r2_std": 0.012358719496266601
+  },
+  "coefficients": {
+    "Latitude": -0.8969288766386659,
+    "Longitude": -0.8698417752417187,
+    "AveRooms": -0.2944101344732998,
+    "AveOccup": -0.040829103085087366,
+    "Population": -0.002307723145830248,
+    "HouseAge": 0.1225462380784079,
+    "AveBedrms": 0.33925949059448474,
+    "MedInc": 0.8543830309268551
+  },
+  "comparison": [
+    {
+      "name": "Baseline LinearRegression",
+      "kind": "linear",
+      "cv_rmse": 0.7205095145054943,
+      "mae": 0.5332001304956565,
+      "rmse": 0.7455813830127764,
+      "r2": 0.5757877060324508
+    },
+    {
+      "name": "LinearRegression + features",
+      "kind": "linear",
+      "cv_rmse": 0.6620068472657058,
+      "mae": 0.4775178941206411,
+      "rmse": 0.6619741794602105,
+      "r2": 0.6655930922724032
+    },
+    {
+      "name": "RidgeCV + features",
+      "kind": "linear",
+      "cv_rmse": 0.6691638184316603,
+      "mae": 0.47751789206028344,
+      "rmse": 0.6619741501456002,
+      "r2": 0.6655931218898965
+    },
+    {
+      "name": "HistGradientBoosting (reference)",
+      "kind": "non-linear",
+      "cv_rmse": 0.47360252028955135,
+      "mae": 0.3110552128758936,
+      "rmse": 0.4653991953632404,
+      "r2": 0.8347108310143663
+    }
+  ],
+  "best_linear": "LinearRegression + features"
+}
